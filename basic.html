@@ -1,0 +1,498 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN""http://www.w3.org/TR/html4/strict.dtd">
+<html lang="ko">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8">
+		<title>Hello VIM</title>
+		<link rel="stylesheet" href="./bootstrap/css/bootstrap.css">
+		<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+		<script type="text/javascript" src="./bootstrap/js/bootstrap.js"></script>
+		<style type="text/css">
+			body {
+				padding-top: 150px;
+				padding-bottom: 40px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="navbar navbar-inverse navbar-fixed-top">
+			<div class="navbar-inner">
+				<div class="container">
+					<a class="brand" href="main_page.html">Hello VIM!</a>
+				</div>
+				<div class="container">
+					<ul class="nav">
+						<li >
+							<a href="about.html">About Vim</a>
+						</li>
+						<li class="active">
+							<a href="basic.html">Basic</a>
+						</li>
+						<li>
+							<a href="practical.html">Practical</a>
+						</li>
+						<li>
+							<a href="other.html">Others</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="container">
+			<div class="tabbable tabs-left">
+				<ul class="nav nav-tabs">
+					<li class="active">
+						<a data-toggle="tab" href="#A2">
+							Insert Mode로 전환
+						</a>
+					</li>
+					<li>
+						<a data-toggle="tab" href="#B2">
+							저장과 종료
+						</a>
+					</li>
+					<li>
+						<a data-toggle="tab" href="#C2">
+							커서 및 페이지 이동
+						</a>
+					</li>
+					<li>
+						<a data-toggle="tab" href="#D2">
+							삭제, 복사 및 취소
+						</a>
+					</li>
+					<li>
+						<a data-toggle="tab" href="#E2">
+							범위 지정
+						</a>
+					</li>
+				</ul>
+
+				<div class="tab-content">
+					<div class="tab-pane active" id="A2">
+						<p>vim에서 텍스트를 편집하기 위해서는 입력모드로 전환해야 합니다. 이에 사용하는 키의 종류가 여러가지가 존재하는데 아래의 표로 그 차이점을 정리해 보았습니다.</p>
+						<table border="1" width="100%">
+							<tr align="center" valign="middle" style="background-color:#CCCCCC;">
+								<td><p>명령어</p></td>
+								<td><p>기능</p></td>
+							</tr>
+							<tr align="center" valign="middle">
+								<td><p> a </p></td>
+								<td><p>(append)현재 커서가 위치한 곳에서 한칸 뒤로 이동 후 입력모드로 전환됩니다.</p></td>
+								</tr>
+								<tr align="center" valign="middle">
+									<td><p> A </p></td>
+									<td><p>현재 행의 끝으로 이동한 후 입력모드로 전환됩니다.</p></td>
+								</tr>
+								<tr align="center" valign="middle">
+									<td><p> i </p></td>
+									<td><p>(insert)현재 커서가 존재하는 위치에서 입력모드로 전환됩니다.</p></td>
+								</tr>
+
+								<tr align="center" valign="middle">
+									<td><p> I </p></td>
+									<td><p>현재 행의 맨 앞으로 이동한 후 입력모드로 전환됩니다.</p></td>
+								</tr>
+
+								<tr align="center" valign="middle">
+									<td><p> o </p></td>
+									<td><p>(openline)현재 행 아래에 새 행을 만들고 입력모드로 전환됩니다.</p></td>
+								</tr>
+
+								<tr align="center" valign="middle">
+									<td><p> O </p></td>
+									<td><p>현재 행 위에 새 행을 만들고 입력모드로 전환됩니다.</p></td>
+								</tr>
+
+								<tr align="center" valign="middle">
+									<td><p> R </p></td>
+									<td><p>(replace)모드로 글자 위에 덧 쓰이는 방식으로 입력모드가 실행됩니다.</p></td>
+								</tr>
+
+								<tr align="center" valign="middle">
+									<td><p> s </p></td>
+									<td><p>현재 커서가 있는 위치의 단어를 지우고 입력모드로 전환됩니다.</p></td>
+								</tr>
+								
+								<tr align="center" valign="middle">
+									<td><p> S </p></td>
+									<td><p> 현재 커서가 있는 행을 지우고 입력모드로 전환됩니다.</p></td>
+								</tr>
+
+							</table>
+							<br>
+							<p>아래 이미지는 a,A 와 i,I의 커서에 위치를 보여줍니다.</p>
+							<br>
+							<table border="0" width="100%">
+								<tr align="center" valign="middle">
+									<td>
+										<img src="./img/vi_insert.png" width="512" height="181"alt="curser position">
+									</td>
+								</tr>
+								<tr align="center" valign="middle">
+									<td>
+										<p><i>이미지 출처:손에 잡히는 Vim</i><p>
+									</td>
+								</tr>
+							</table>
+
+					</div>
+					<div class="tab-pane" id="B2">
+						<p>기본적으로 vim을 실행하고 이 문서를 편집하기 위한 방법까지는 이전 페이지들에서 설명하였습니다.<br>
+							이번 페이지에서 설명할 내용은 Command Mode에서 사용하는 기본적인 명령어들로 <b>저장, 다른이름으로 저장, 종료 등</b>의 명령어들을 알아보겠습니다.</p>
+						<table width="100%" border="1">
+							<tr align="center" valign="middle" style="background-color:#CCCCCC">
+								<td>명령어</td>
+								<td>기능</td>
+							</tr>
+							<tr align="center" valign="middle">
+								<td> :w </td>
+								<td> (write) 현재 파일을 저장합니다.</td>
+							</tr>
+							<tr align="center" valign="middle">
+								<td> :q </td>
+								<td> (quit) vim을 종료합니다.</td>
+							</tr>
+							<tr align="center" valign="middle">
+								<td> :e [filename]</td>
+								<td>(edit) filename을 엽니다.</td>
+							</tr>
+							<tr align="center" valign="middle">
+								<td> :w [filename]</td>
+								<td>filename으로 현재 파일을 저장합니다(다른이름으로 저장)</td>
+							</tr>
+							<tr align="center" valign="middle">
+								<td> :wq </td>
+								<td> w 명령어와 q 명령어의 혼합으로 해당파일을 저장하고 종료합니다.</td>
+							</tr>
+							<tr align="center" valign="middle">
+								<td> :w! [filename]</td>
+								<td>해당 파일을 filename에 강제적으로 덮어씁니다.</td>
+							</tr>
+							<tr align="center" valign="middle">
+								<td> :q! </td>
+								<td>변경된 내용을 저장하지 않은채로 vim을 종료합니다.</td>
+							</tr>
+							<tr align="center" valign="middle">
+								<td> :wq! [filename]</td>
+								<td>변경된 내용을 filename에 덮어쓰고 저장합니다.</td>
+							</tr>
+						</table>
+						<br>
+						<p>위 테이블에서 볼 수 있듯 ! 명령어는 강제명령을 뜻하는 명령어로 이를 문장 마지막에 붙임으로 활용합니다.</p><p>
+							filename의 예시를 들자면</p><p> <b>:e input.txt</b> - input.txt라는 파일을 엽니다.<br>
+						<b>:w output.txt</b> - 현재 작성한 텍스트를 output.txt라는 파일로 저장합니다.</p>
+					</div>
+					<div class="tab-pane" id="C2">
+						<p>이 페이지에서는 Normal Mode에서 사용하는 기본적인 Command들 중 커서와 페이지의 이동에 대해 알아보겠습니다.</p>
+						<br>
+						<p><b>커서 상하좌우 이동</b></p>
+						<p>Vim이 나올 당시의 키보드는 지금과 같이 텐 키(키보드 우측 숫자판)부분이 없는 형태가 많았습니다.<br>
+							이로 인해서 당시 커서를 이동할 때에 사용할 다른 기능을 제공하였습니다. 현재에는 화살표 키가 존재하므로 굳이 배울 필요성을 느끼지 못하는 경우가 있지만 손의 이동을 최소화하며 매크로 기능을 작성할 때 커서이동 영문키를 사용하므로 알아두는 쪽이 유리합니다.<br>
+						또한 상하좌우 키 이동은 대소문자를 구분하므로 이에 유의해야 합니다.</p>
+						<table width="100%">
+							<tr align="center" valign="middle">
+								<td>
+									<img src="./img/vim_hjkl.png" alt="hjkl key">
+								</td>
+							</tr>
+							<tr align="center" valign="middle">
+								<td><i>이미지 출처:ece.uwaterloo.ca</i></td>
+							</tr>
+						</table>
+						<br>
+						<table width="100%" border="1">
+							<tr align="center" valign="middle" style="background-color:#CCCCCC">
+								<td>명령어</td>
+								<td>기능</td>
+							</tr>
+							<tr align="center" valign="middle">
+								<td> [#]h </td>
+								<td>h 단일 키로는 좌측 1칸 이동, [#]에 수치를 적을 경우 그 수치만큼 좌측으로 이동</td>
+							</tr>
+							<tr align="center" valign="middle">
+								<td> [#]j</td>
+								<td>j 단일 키로는 아래로 1칸 이동, [#]에 수치를 적을 경우 그 수치만큼 아래로 이동</td>
+							</tr>
+							<tr align="center" valign="middle">
+								<td> [#]k</td>
+								<td>k 단일 키로는 위로 1칸 이동, [#]에 수치를 적을 경우 그 수치만큼 위로 이동</td>
+							</tr>
+							<tr align="center" valign="middle">
+								<td> [#]l</td>
+								<td>l 단일 키로는 우측 1칸 이동, [#]에 수치를 적을 경우 그 수치만큼 우측으로 이동</td>
+							</tr>
+							<tr align="center" valign="middle">
+								<td> ^ </td>
+								<td>행의 맨 앞으로 이동합니다(단, 공백을 무시하므로 Home key와는 차이가 있습니다)</td>
+							</tr>
+							<tr align="center" valign="middle">
+								<td> $ </td>
+								<td>행의 맨 마지막으로 이동합니다(= End key)</td>
+							</tr>
+						</table>
+						<br>
+						<p><b>화면 스크롤</b></p>
+						<p>위의 커서이동 명령어로는 화면단위의 이동이 불편하므로 이에 따라 화면 스크롤을 하기 위한 단축키들 중 가장 많이 쓰이는 4가지에 대해 알아보겠습니다.(이는 대소문자를 구분하지 않습니다)</p>
+						<table width="100%" border="1">
+							<tr align="center" valign="middle" style="background-color:#CCCCCC">
+								<td>명령어</td>
+								<td>기능</td>
+							</tr>
+							<tr align="center" valign="middle">
+								<td>Ctrl+B</td>
+								<td> 위로 한 화면 스크롤(=Page Up key)</td>
+							</tr>
+							<tr align="center" valign="middle">
+								<td>Ctrl+F</td>
+								<td> 아래로 한 화면 스크롤(=Page Down key)</td>
+							</tr>
+							<tr align="center" valign="middle">
+								<td>Ctrl+U</td>
+								<td> 위로 1/2 화면 스크롤</td>
+							</tr>
+							<tr align="center" valign="middle">
+								<td>Ctrl+D</td>
+								<td>아래로 1/2화면 스크롤</td>
+							</tr>
+						</table>
+						<br>
+						<p><b>문서 특정위치로 이동하기</b></p>
+						<p>만일 문서가 1만행이라고 가정할 경우 위의 스크롤 만으로도 이는 매우 불편합니다. 때문에 문서의 특정한 행으로 이동하는 명령어가 따로 존재합니다.</p>
+						<table width="100%" border="1">
+							<tr align="center" valign="middle" style="background-color:#CCCCCC">
+								<td>명령어</td>
+								<td>기능</td>
+							</tr>
+							<tr align="center" valign="middle">
+								<td>[#]gg</td>
+								<td>[#]에 적힌 수치의 행으로 이동합니다. 만일 수치가 없을 경우 이는 1행으로 이동합니다.</td>
+							</tr>
+							<tr align="center" valign="middle">
+								<td>[#]G</td>
+								<td>[#]에 적힌 수치의 행으로 이동합니다. 만일 수치가 없을 경우 이는 마지막 행으로 이동합니다.</td>
+							</tr>
+							<tr align="center" valign="middle">
+								<td>:[#]</td>
+								<td>[#]행으로 이동합니다</td>
+							</tr>
+						</table>
+						<br>
+						<p>첫번째 [#]gg명령어의 경우 화면에 출력이 되지 않는 반면, :[#] 명령어는 화면에 출력이 되므로 오타를 방지하고 싶다면 이쪽을 추천합니다.</p>
+						<p><b>현재 위치 확인하기</b></p>
+						<p>현재 행의 위치정보를 알고싶다면 <b>Ctrl+G</b>를 사용합니다.<br>
+							<b>:file</b> 또한 동일한 기능을 하는 명령어 입니다.</p>
+						<table width="100%">
+							<tr align="center" valign="middle">
+								<td>
+									<img src="./img/vim_state.png" width="70%" height="70%" alt="vim state">
+								</td>
+							</tr>
+							<tr align="center" valign="middle">
+								<td>붉은색 태두리 내부에 현재 위치에 대한 정보가 출력됩니다.</td>
+							</tr>
+							<tr align="center" valign="middle">
+								<td><br>
+								"basic.html" 문서를 편집하고 있으며, 이는 288라인으로 이루어져 있습니다.<br>
+								현재 커서는 문서의 97%위치에 있으며 280행,78-83열을 가리키고 있습니다. <br>
+								현재 보고있는 페이지는 바닥(100%)페이지 입니다. </td>
+							</tr>
+						</table>
+					</div>
+					<div class="tab-pane" id="D2">
+						<p><b>삭제하기</b></p>
+						<p>insert mode에서의 삭제는 일반적인 입력과 동일하게 backspace 또는 delete로 실행됩니다.<br>
+							normal mode에서의 삭제는 커서의 위치로 특정한 command를 입력받고 이를 실행합니다.</p>
+						<table width="100%" border="1">
+							<tr align="center" valign="middle" style="background-color:#CCCCCC">
+								<td>명령어</td>
+								<td>기능</td>
+							</tr>
+							<tr align="center" valign="middle">
+								<td>x</td>
+								<td>커서에 위치한 문제를 삭제합니다(=Delete key)</td>
+							</tr>
+							<tr align="center" valign="middle">
+								<td>[#]dd </td>
+								<td>커서가 위치한 행부터 [#]의 수치만큼의 행을 삭제합니다. 수치가 없을 경우 1행만을 삭제합니다.</td>
+							</tr>
+							<tr align="center" valign="middle">
+								<td>:[#]d</td>
+								<td>[#]에 입력한 행을 삭제합니다.</td>
+							</tr>
+							<tr align="center" valign="middle">
+								<td>D<br>
+								d$</td>
+								<td>현재 커서의 위치에서 현재 행의 끝부분까지 삭제합니다</td>
+							</tr>
+							<tr align="center" valign="middle">
+								<td>J</td>
+								<td>커서의 위치와 관계없이 아래 행을 현재 행의 끝 부분에 붙입니다(아래 행 전반부 공백은 무시합니다)</td>
+							</tr>
+						</table>
+						<br>
+						<p>normal mode에서의 삭제는 insert mode에서의 삭제와 차이점이 존재하는데, 행의 끝 부분에 도달할 시 다음 행의 문자를 삭제하는 것이 아닌 현재 행에서 전반부 쪽으로 삭제를 진행해 나갑니다.<br>
+							이는 삭제키가 개행문자(새로운 행을 만드는 문자)를 인식하지 못하기 때문에 발생하는 일 입니다.</p>
+						<br>
+						<p><b>붙여넣기</b></p>
+						<p>들어가기 전 vim의 특징에 대해 하나 말씀드리자면, vim에서의 삭제 명령어는 모두 잘라내기 명령어로 작동합니다.<br>
+							만일 어떠한 문장을 복사한 다음 다른 문장을 삭제하고 붙여넣기를 하게 된다면 삭제한 문장이 그 부분에 생성될 것입니다.<br>
+							 이런식으로 삭제된 문자열은 레지스터(register)에 저장되는데 이는 <a href="./practical.html">practical page</a>에서 다루도록 하겠습니다.</p>
+						<table width="100%" border="1">
+							<tr align="center" valign="middle" style="background-color:#CCCCCC">
+								<td>명령어</td>
+								<td>기능</td>
+							</tr>
+							<tr align="center" valign="middle">
+								<td>[#]p </td>
+								<td>(put) [#]의 숫자만큼 반복하여 현재 행에 붙여 넣습니다.<br>
+								 개행문자가 포함될 경우 행의 아래에 붙여넣으며, 수치가 없을 경우 1회만 작동합니다.</td>
+							</tr>
+							<tr align="center" valign="middle">
+								<td>:[#]pu</td>
+								<td>[#]에 입력한 행에 복사된 내용을 붙여넣습니다.<br>
+								수치가 없을 경우 현재 커서의 위치가 있는 행에 붙여넣습니다.</td>
+							</tr>
+							<tr align="center" valign="middle">
+								<td>P</td>
+								<td>현재 행 위에 붙여넣습니다.</td>
+							</tr>
+						</table>
+						<br>
+						<p><b>복사하기</b></p>
+						<table width="100%" border="1">
+							<tr align="center" valign="middle" style="background-color:#CCCCCC">
+								<td>명령어</td>
+								<td>기능</td>
+							</tr>
+							<tr align="center" valign="middle">
+								<td>[#]yy <br>
+									[#]Y</td>
+								<td>커서의 위치로 부터[#]만큼 행을 복사(레지스터에 저장)합니다.<br>
+								 수치가 없을 경우 현재 커서가 위치한 행만을 복사합니다.</td>
+						 </tr>
+						 <tr align="center" valign="middle">
+							 <td>:[#]y</td>
+							 <td>[#]행을 복사합니다. 수치가 없을 경우 현재 커서가 위치한 부분의 행을 복사합니다.</td>
+						 </tr>
+					 </table>
+					 <br>
+					 <p><b>실행 취소와 재실행</b></p>
+					 <p>문서를 편집하다 보면 이전에 실행한 명령을 취소하거나 그 명령을 다시 실행하는 경우가 발생합니다.이러한 기능을  undo와 redo라 부르는데 이에 대한 명령은 다음과 같습니다.</p>
+					 <table width="100%" border="1">
+							<tr align="center" valign="middle" style="background-color:#CCCCCC">
+								<td>명령어</td>
+								<td>기능</td>
+							</tr>
+					 	<tr align="center" valign="middle">
+							<td>u</td>
+							<td>(undo)이전 실행한 명령을 취소합니다.</td>
+						</tr>
+						<tr align="center" valign="middle">
+							<td>Ctrl+r</td>
+							<td>(redo)이전 취소한 명령을 다시 실행합니다.</td>
+						</tr>
+						<tr align="center" valign="middle">
+							<td>.</td>
+							<td>insert mode에서 ESC를 누르기 전 까지 한 내용을 커서가 위치한 부분에서 반복합니다.</td>
+						</tr>
+					 </table>
+					</div>
+					<div class="tab-pane" id="E2">
+						<p>위 페이지 '삭제,복사 및 취소'를 보았을 때, [#]으로 수치를 정해주는 부분을 볼 수 있었을 것입니다.<br>
+							이 페이지에서는 이러한 범위지정의 예시와 드래그 기능을 제공하는 비쥬얼 모드(Visual Mode)에 대해서 소개합니다.</p>
+						<p><b>Command mode 범위지정</b></p>
+						<table width="100%" border="1">
+							<tr align="center" valign="middle" style="background-color:#CCCCCC">
+								<td>명령어</td>
+								<td>기능</td>
+							</tr>
+							<tr align="center" valign="middle">
+								<td>[#1],[#2]d</td>
+								<td>[#1]부터 [#2]번째 행까지 삭제합니다.</td>
+							</tr>
+							<tr align="center" valign="middle">
+								<td>:%y</td>
+								<td>문서 전체를 복사합니다.</td>
+							</tr>
+						</table>
+						<br>
+						<p>범위를 지정하는 기본적인 틀은 위와 같으며 이에 대한 예시 몇가지를 아래에 소개합니다.</p>
+						<p><b>:2d</b> - 2번째 행을 삭제<br>
+							<b>:3y</b> - 3번째 행을 복사<br>
+							<b>:4pu</b> - 4번째 행에 레지스터 내용을 붙여넣기<br>
+							<b>:5,20d</b> - 5~20 번째 행을 삭제<br>
+							<b>:6,$d</b> - 6~마지막 행을 삭제<br>
+							<b>:1,$y</b> - 1~마지막 행을 복사(=:%y)<br>
+							<b>:.,+20y</b> - 커서가 있는 행부터 아래로 20행을 복사<br>
+							<b>:-10,+5y</b> - 커서가 있는 행으로 부터 위로 10행 아래로 5행 복사</p>
+						<p>command mode로 범위를 지정하는 명령어는 위와 같습니다.<br>
+							이러한 범위지정이나 커서이동에 있어서 몇가지 특수문자를 확인할 수 있었을 터인데 아래 표는 이러한 기호에 대한 설명입니다.</p>
+						<table width="100%" border="1">
+							<tr align="center" valign="middle" style="background-color:#CCCCCC">
+								<td>명령어</td>
+								<td>기능</td>
+							</tr>
+							<tr align="center" valign="middle">
+								<td>.</td>
+								<td>현재 행</td>
+							</tr>
+							<tr align="center" valign="middle">
+								<td>$</td>
+								<td>마지막 행</td>
+							</tr>
+							<tr align="center" valign="middle">
+								<td>+[#]</td>
+								<td>현재 행으로부터 [#]만큼 아래의 행</td>
+							</tr>
+							<tr align="center" valign="middle">
+								<td>-[#]</td>
+								<td>현재 행으로부터 [#]만큼 위의 행</td>
+							</tr>
+							<tr align="center" valign="middle">
+								<td>%</td>
+								<td>문서 전체</td>
+							</tr>
+						</table>
+						<br>
+						<p><b>Visual Mode 범위지정</b></p>
+						<p>command mode로 명령을 내릴 경우 현재 위치하는 행의 번호를 계산해야 하므로 복잡함을 느낄 수 있습니다.<br>
+						visual mode는 드래그 기능과 유사한 기능으로 시각적인 범위확인이 가능합니다.
+					</p>
+					<table width="100%" border="1">
+							<tr align="center" valign="middle" style="background-color:#CCCCCC">
+								<td>명령어</td>
+								<td>기능</td>
+							</tr>
+						<tr align="center" valign="middle">
+							<td>v</td>
+							<td>일반적인 비쥬얼 모드로 커서 위치를 기준으로 블록을 설정합니다.</td>
+						</tr>
+						<tr align="center" valign="middle">
+							<td>V</td>
+							<td>비쥬얼 라인 모드로 커서가 있는 행을 기준으로 행 단위로 블록을 설정합니다.</td>
+						</tr>
+						<tr align="center" valign="middle">
+							<td>Ctrl+V</td>
+							<td>비쥬얼 블록 모드로 열단위 블록을 지정합니다.</td>
+						</tr>
+					</table>
+					<br>
+					<p>이후 방향키나 hjkl, PgUp, PgDown키 등으로 커서를 움직여 범위를 정하고, 삭제를 원하면 d, 복사를 원하면 y, mode를 그만두고 싶다면 ESC를 눌러 빠져나올 수 있습니다.</p>
+					<p>command mode와 복합적으로, visual mode를 실행한 뒤 원하는 행의 번호를 입력함으로 이동이 가능합니다.<br>
+						예를들어 visual mode를 활성화 하고 100G 또는 100gg라는 명령어를 입력함으로 현재 위치에서부터 100번째 행까지의 드래그가 가능합니다.</p>
+					<br>
+					</div>
+				</div>
+			</div>
+		</div>
+		<hr>
+		<div class="footer">
+			<table width="100%">
+				<tr align="center" valign="middle">
+					<td>Copyright 2013. catapult2@ajou.ac.kr</td>
+				</tr>
+			</table>
+		</div>
+	</body>
+</html>
+
